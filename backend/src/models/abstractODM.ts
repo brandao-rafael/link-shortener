@@ -20,4 +20,9 @@ export default abstract class AbstractODM<T> {
     const result = await this.model.findOne({shortUrl: shortUrl});
     return result;
   }
+
+  public async getAll(): Promise<T[]> {
+    const result = await this.model.find();
+    return result;
+  }
 }
