@@ -26,4 +26,18 @@ export default class ShortenerController {
       this.next(error);
     }
   }
+
+  public async redirect() {
+    try {
+      const { word } = this.req.params;
+      const originalUrl = await ShortenerService.redirect(word as string);
+      if (!originalUrl) {
+        return this.res.status(404).json({message: 'url not found'});
+      }
+      return this.res.redirect(originalUrl);
+      
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }

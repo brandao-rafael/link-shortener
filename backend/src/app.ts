@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/shorten', shortenerRouter);
+app.use('/', shortenerRouter);
 
 app.use('/', (_req, res) => res.send('Choo choo'));
 
