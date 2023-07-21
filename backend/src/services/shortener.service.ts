@@ -1,25 +1,30 @@
 import ShortenerODM from "../models/shortenerODM";
 import 'dotenv/config';
 
-const shortenerODM = new ShortenerODM();
-
 export default class ShortenerService {
+
+  private static DEFAULT_BASE_URL:string = process.env.DOMAIN || 'http://localhost:3005';
+  private static shortenerODM: ShortenerODM = new ShortenerODM();
+
+  private static generateShortUrl(word: string):string {
+    return `${this.DEFAULT_BASE_URL}/${word}`;
+  }
   
   static async shortUrl(originalUrl: string, word: string):Promise<string | null> {
-    const shortUrl = `${process.env.DOMAIN}/${word}` || `http://localhost:3005/${word}`;
-    const all = await shortenerODM.getAll();
+    const shortUrl = this.generateShortUrl(word);
+    const allData = await this.shortenerODM.getAll();
+    // Complexity O(n)
+    const isUrlOnDb = allData.some((urlData) => urlData.shortUrl === shortUrl);
     
-    if (all.some((url) => url.shortUrl = shortUrl)) {
-      return null;
-    } else {
-      await shortenerODM.create({originalUrl, shortUrl});
+    if (isUrlOnDb) {
+      await this.shortenerODM.create({originalUrl, shortUrl});
       return shortUrl;
     }
+    return null;
   }
 
-  static async redirect(word: string):Promise<string | null> {
-    const shortUrl = `${process.env.DOMAIN}/${word}` || `http://localhost:3005/${word}`;
-    const urls = await shortenerODM.getFullUrl(shortUrl);
+  static async toRoute(word: string):Promise<string | null> {
+    const urls = await this.shortenerODM.getFullUrl(this.generateShortUrl(word));
     
     if(!urls?.originalUrl) return null;
 
