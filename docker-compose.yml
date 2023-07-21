@@ -1,6 +1,9 @@
 version: '3'
 services:
   frontend:
+    container_name: short_frontend
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/LinkShortner
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -8,20 +11,27 @@ services:
       - 3000:3000
     depends_on:
       - backend
-    environment:
-      - MONGO_URI=mongodb://mongodb:27017/LinkShortner
 
   backend:
+    container_name: short_backend
+    tty: true
+    stdin_open: true
+    command: bash
     restart: always
+    depends_on:
+      - mongodb
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
       - 3005:3005
-    depends_on:
-      - mongodb
 
   mongodb:
+    container_name: short_db
     image: mongo:5.0.7
     ports:
       - 27017:27017
+
+networks:
+  default:
+    name: link_shortener_net
