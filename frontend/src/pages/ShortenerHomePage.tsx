@@ -1,9 +1,12 @@
 import React from 'react';
+import Title from '~/components/title';
 
-function ShortenerHomePage() {
-  return <div>
-    Hello, World!
-    </div>;
+const ShortenerHomePage: React.FC = () => {
+  return (
+    <div>
+      <Title />
+    </div>
+  );
 }
 
 export default ShortenerHomePage;
