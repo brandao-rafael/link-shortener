@@ -15,8 +15,7 @@ export default class ShortenerService {
     const allData = await this.shortenerODM.getAll();
     // Complexity O(n)
     const isUrlOnDb = allData.some((urlData) => urlData.shortUrl === shortUrl);
-    
-    if (isUrlOnDb) {
+    if (!isUrlOnDb) {
       await this.shortenerODM.create({originalUrl, shortUrl});
       return shortUrl;
     }
