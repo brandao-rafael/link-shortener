@@ -1,11 +1,12 @@
 import React from "react";
+import { Div, Title } from "./styles/title";
 
-const Title: React.FC = () => {
+const TitleContainer: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to our Link Shortener</h1>
-    </div>
+    <Div>
+      <Title style={{backgroundColor: 'white'}}>Welcome to our Link Shortener</Title>
+    </Div>
   )
 }
 
-export default Title;
+export default TitleContainer;

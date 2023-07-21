@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 import colors from './colors';
 
 const GlobalStyle = createGlobalStyle`
@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${colors.primary};
     color: ${colors.green};
     font-family: 'MontserratThin', sans-serif;
-    font-weight: lighter;
   }
 `
 
