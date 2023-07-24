@@ -8,7 +8,7 @@ const Div = styled.header`
   flex-flow: column nowrap;
   height: 5rem;
   justify-content: space-around;
-  margin-top: 4rem;
+  margin-top: 2rem;
   text-align: center;
   width: 100%;
 `;
