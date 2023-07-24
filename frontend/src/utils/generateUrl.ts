@@ -1,19 +1,22 @@
 import 'dotenv/config';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import IUrlInfo from '~/interfaces/iUrlInfo';
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3005';
 
-interface IUrlInfo {
-  originalUrl: string,
-  customWord: string,
-}
-
 const generateUrl = async (urlInfo: IUrlInfo) => {
-  const response = await axios.post(`${BASE_URL}/shorten`, urlInfo);
-  if (response.status != 201) {
-    return response.data.message;
+  try {
+    const response = await axios.post(`${BASE_URL}/shorten`, urlInfo);
+    if (response.status != 201) {
+      return response.data.message;
+    }
+    return response.data;
+  } catch (error) {
+    if(axios.isAxiosError(error)) {
+      return error.message;
+    }
+    return 'Something gone wrong!'
   }
-  return response.data;
 }
 
 export default generateUrl;

@@ -58,6 +58,14 @@ const Button = styled.button`
     color: ${colors.green};
     transition: all ease-in-out 300ms;
   }
+  &:disabled {
+    background-color: ${colors.tertiary};
+    color: ${colors.gray};
+    cursor: none;
+    &:hover {
+      border: none;
+    }
+  }
 `;
 
 export {

@@ -1,21 +1,31 @@
 import React, { ChangeEvent, useState } from "react";
 import { Button, Container, H2, HeadlineContent, Input, InputContent } from "./styles/content";
 import { Subtitle } from "./styles/title";
+import IUrlInfo from "~/interfaces/iUrlInfo";
 
-const Content: React.FC = () => {
+const Content: React.FC<{ submit: (urlInfo: IUrlInfo) => Promise<void> }> = ({ submit }) => {
   const [urlInfo, setUrlInfo] = useState({
     originalUrl: '',
     customWord: '',
   });
+  const [isValid, setIsValid] = useState(false);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>):void => {
+  const validateUrlInfo = () => {
+    const regexUrl = RegExp(/^(https?:\/\/)(([\w.-]+)\.([a-zA-Z]{2,63})(:[0-9]{1,5})?)(\/[^\s]*)?$/);
+    const isValidUrl = regexUrl.test(urlInfo.originalUrl);
+    const isValidWord = urlInfo.customWord.length > 3;
+    const isValid = isValidUrl && isValidWord;
+    setIsValid(isValid);
+  }
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
     setUrlInfo((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+    validateUrlInfo();
   }
-
 
   return (
     <Container>
@@ -37,7 +47,10 @@ const Content: React.FC = () => {
           value={urlInfo.customWord}
         />
       </InputContent>
-      <Button>
+      <Button
+        onClick={() => submit(urlInfo)}
+        disabled={!isValid}
+      >
         Submit!
       </Button>
     </Container>
