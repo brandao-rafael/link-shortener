@@ -1,5 +1,5 @@
 import React from 'react';
-import TitleContainer from '~/components/title';
+import TitleContainer from '~/components/Title';
 
 const ShortenerHomePage: React.FC = () => {
   return (

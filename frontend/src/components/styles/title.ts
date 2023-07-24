@@ -2,7 +2,8 @@ import styled from "styled-components";
 import colors from "~/styles/colors";
 
 const Div = styled.header`
-  background-color: ${colors.primary};
+  background-color: ${colors.secondary};
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
   display: flex;
   flex-flow: column nowrap;
   height: 5rem;
@@ -17,7 +18,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.p`
-  color: ${colors.green};
+  color: ${colors.light};
   font-family: 'MontserratRegular', sans-serif;
 `;
 
