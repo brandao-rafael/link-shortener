@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${colors.primary};
-    color: ${colors.green};
     font-family: 'MontserratThin', sans-serif;
   }
 `
