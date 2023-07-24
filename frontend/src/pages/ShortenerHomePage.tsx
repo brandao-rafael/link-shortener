@@ -23,6 +23,7 @@ const ShortenerHomePage: React.FC = () => {
   return (
     <div>
       <TitleContainer />
+      {shortUrl !== '' && <p>{shortUrl}</p>}
       <Content submit={submit} />
       <ToastContainer
         position="top-center"
