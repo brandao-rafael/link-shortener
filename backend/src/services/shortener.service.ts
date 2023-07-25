@@ -1,5 +1,5 @@
-import ShortenerODM from "../models/shortenerODM";
 import 'dotenv/config';
+import ShortenerODM from "../models/shortenerODM";
 
 export default class ShortenerService {
 
