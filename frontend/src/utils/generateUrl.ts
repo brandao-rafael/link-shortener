@@ -2,7 +2,7 @@ import 'dotenv/config';
 import axios from 'axios';
 import IUrlInfo from '~/interfaces/iUrlInfo';
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.BE_BASE_URL;
 
 const generateUrl = async (urlInfo: IUrlInfo) => {
   try {
