@@ -39,7 +39,7 @@ const ShortenerHomePage: React.FC = () => {
         pauseOnHover
         theme="dark"
         />
-        <ShortUrlResult result='http://url.short'/>
+        {shortUrl !== '' && <ShortUrlResult result={shortUrl}/>}
     </div>
   );
 }
