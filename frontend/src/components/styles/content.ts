@@ -9,7 +9,7 @@ const Container = styled.main`
   flex-flow: column;
   justify-content: space-around;
   height: 25rem;
-  margin: 5% auto 0;
+  margin: 2.5% auto 0;
   padding: 2rem;
   text-align: center;
   width: 80%;

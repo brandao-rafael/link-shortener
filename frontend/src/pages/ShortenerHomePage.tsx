@@ -5,25 +5,27 @@ import Content from '~/components/Content';
 import TitleContainer from '~/components/Title';
 import IUrlInfo from '~/interfaces/iUrlInfo';
 import generateUrl from "~/utils/generateUrl";
+import ShortUrlResult from '~/components/ShortUrlResult';
 
 const ShortenerHomePage: React.FC = () => {
 
   const [shortUrl, setShortUrl] = useState('');
 
   const submit = async (urlInfo: IUrlInfo):Promise<void> => {
+    toast('Loading...');
     const response = await generateUrl(urlInfo);
-    console.log(response);
     if(typeof response === 'string') {
+      toast.dismiss();
       toast(response);
     } else {
-      setShortUrl(response.data.shortUrl);
+      setShortUrl(response.shortUrl);
+      toast.dismiss();
     }
   }
   
   return (
     <div>
       <TitleContainer />
-      {shortUrl !== '' && <p>{shortUrl}</p>}
       <Content submit={submit} />
       <ToastContainer
         position="top-center"
@@ -36,7 +38,8 @@ const ShortenerHomePage: React.FC = () => {
         draggable
         pauseOnHover
         theme="dark"
-      />
+        />
+        <ShortUrlResult result='http://url.short'/>
     </div>
   );
 }
