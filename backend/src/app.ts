@@ -7,7 +7,18 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors())
+const allowedOrigins = ['https://linkshortener.up.railway.app/'];
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin!) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 
 app.use('/', shortenerRouter);
 
