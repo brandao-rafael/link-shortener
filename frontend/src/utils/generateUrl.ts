@@ -2,12 +2,11 @@ import 'dotenv/config';
 import axios from 'axios';
 import IUrlInfo from '~/interfaces/iUrlInfo';
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3005';
+const BASE_URL = process.env.BASE_URL;
 
 const generateUrl = async (urlInfo: IUrlInfo) => {
   try {
     const response = await axios.post(`${BASE_URL}/shorten`, urlInfo);
-    console.log(response.data);
     if (response.status != 201) {
       return response.data.message;
     }
