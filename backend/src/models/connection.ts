@@ -1,6 +1,13 @@
 import mongoose from "mongoose";
-import 'dotenv/config';
 
-const connectToDatabase = (mongoUri = process.env.MONGO_URI) => mongoose.connect(mongoUri!);
+const connectToDatabase = async () => {
+  const mongoUri = `${process.env.MONGO_URL}/linkShortener`;
+  try {
+    await mongoose.connect(mongoUri!);
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+  }
+};
 
 export default connectToDatabase;
