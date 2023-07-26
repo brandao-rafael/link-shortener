@@ -5,7 +5,7 @@ const TitleContainer: React.FC = () => {
   return (
     <Div>
       <Title>Welcome to our Link Shortener</Title>
-      <Subtitle>It's just another simple url shortener</Subtitle>
+      <Subtitle>It's just another simple URL shortener</Subtitle>
     </Div>
   )
 }
