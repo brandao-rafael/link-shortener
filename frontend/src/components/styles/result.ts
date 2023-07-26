@@ -11,6 +11,10 @@ const ResultContent = styled.div`
   margin: 10px auto;
   padding: 10px;
   width: 80%;
+  @media only screen and (max-width: 450px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const Span = styled.span`
@@ -30,9 +34,15 @@ const IconButton = styled.button`
   cursor: pointer;
   padding: 5px;
   width: 30%;
+  @media only screen and (max-width: 450px) {
+    margin-top: 10px;
+    padding: 10px;
+    width: auto;
+  }
 `;
 
 const Img = styled.img`
+  margin: 0 0 0 10px;
   width: 15px;
 `;
 
