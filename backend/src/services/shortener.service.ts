@@ -1,9 +1,9 @@
-import ShortenerODM from "../models/shortenerODM";
 import 'dotenv/config';
+import ShortenerODM from "../models/shortenerODM";
 
 export default class ShortenerService {
 
-  private static DEFAULT_BASE_URL:string = process.env.DOMAIN || 'http://localhost:3005';
+  private static DEFAULT_BASE_URL:string = process.env.DOMAIN!;
   private static shortenerODM: ShortenerODM = new ShortenerODM();
 
   private static generateShortUrl(word: string):string {
