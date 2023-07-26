@@ -30,19 +30,19 @@ const Content: React.FC<{ submit: (urlInfo: IUrlInfo) => Promise<void> }> = ({ s
   return (
     <Container>
       <HeadlineContent>
-        <H2>Hello, insert the url and the desired name in fields bellow</H2>
-        <Subtitle>In first field you need to put the url you want short, in second you put a name to be in your encurted link.</Subtitle>
+        <H2>Hello, please insert the URL and the desired name in the fields below</H2>
+        <Subtitle>In the first field, you need to put the URL you want to shorten; in the second field, you put a name to be included in your short link.</Subtitle>
       </HeadlineContent>
       <InputContent>
         <Input
           name="originalUrl"
-          placeholder="The url do you wan't shortener"
+          placeholder="Enter the URL you want to shorten"
           onChange={handleChange}
           value={urlInfo.originalUrl}
         />
         <Input
           name="customWord"
-          placeholder="The name you want be in encurted link"
+          placeholder="Enter the name you want in the encrypted link"
           onChange={handleChange}
           value={urlInfo.customWord}
         />
