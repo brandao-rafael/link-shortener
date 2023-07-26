@@ -11,11 +11,15 @@ This project are deployed on [Railway](https://linkshortener.up.railway.app/)
 
 ## Getting Started
 
-You need to have docker and docker-compose, to more info see the [Docker docs](https://docs.docker.com/compose/install/linux/)
+You need to have node and mongodb installed in you machine, to more info see the [Node docs](https://nodejs.org/en/docs) and [Mongodb docs](https://www.mongodb.com/docs/)
 
 1. Clone this repository
-2. Run in application root directory `docker-compose up -d`
-3. In your favorite browser go to `http://localhost:3000`
+2. `cd frontend && npm install`
+3. In frontend root run `npm run dev`
+4. In your favorite browser go to `http://localhost:3000`
+5. `mongosh "mongodb://localhost:27017"`
+4. `cd backend && npm install`
+5. In backend root run `npm run dev`
 
 ## Contributing
 
