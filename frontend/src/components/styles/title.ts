@@ -11,10 +11,19 @@ const Div = styled.header`
   margin-top: 2rem;
   text-align: center;
   width: 100%;
+  @media only screen and (max-width: 450px) {
+    margin: 0 0 1rem 0;
+    height: fit-content;
+    justify-content: center;
+    padding: 10px;
+  }
 `;
 
 const Title = styled.h1`
   color: ${colors.green};
+  @media only screen and (max-width: 450px) {
+    font-size: 25px;
+  }
 `;
 
 const Subtitle = styled.p`
