@@ -29,6 +29,11 @@ const InputContent = styled.div`
   display: flex;
   width: 80%;
   justify-content: space-between;
+  @media only screen and (max-width: 450px) {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
 `;
 
 const Input = styled.input`
@@ -39,6 +44,9 @@ const Input = styled.input`
   font-size: 15px;
   height: 2rem;
   width: 45%;
+  @media only screen and (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 const Button = styled.button`
