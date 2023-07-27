@@ -2,7 +2,7 @@ import 'dotenv/config';
 import mongoose from "mongoose";
 
 const connectToDatabase = async () => {
-  const mongoUri = `${process.env.MONGO_URL}`;
+  const mongoUri = 'mongodb://127.0.0.1:27017/shortenerDb';
   try {
     await mongoose.connect(mongoUri!);
     console.log("Connected to MongoDB");
