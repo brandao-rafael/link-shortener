@@ -20,15 +20,12 @@ describe('Link Shortener E2E Test', () => {
     const returnedUrl = 'http://localhost:3005/google';
 
     // Navigate to the generate short link page
-// Navigate to the generate short link page
     console.log('Navigating to base URL');
     await page.goto(`${baseUrl}`);
     console.log('Waiting for #originalUrl');
     await page.waitForSelector('#originalUrl');
     console.log('Waiting for #linkName');
     await page.waitForSelector('#linkName');
-
-
 
     // Type the original URL into the input field and submit the form
     console.log('Typing into #originalUrl');
@@ -42,11 +39,9 @@ describe('Link Shortener E2E Test', () => {
     console.log('Waiting for #shortUrl');
     await page.waitForSelector('#shortUrl');
     
-    
     // Assert that the short link has been generated
     console.log('Asserting #shortUrl');
     expect(await page.$eval('#shortUrl', (el) => el.textContent)).toContain(returnedUrl);
-
 
     // Navigate to the short link and check if it redirects to the original URL
     console.log('Navigating to #shortUrl');
