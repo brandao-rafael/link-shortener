@@ -38,4 +38,23 @@ describe('Link Shortener E2E Test', () => {
     await page.goto(returnedUrl, { waitUntil: 'networkidle0', timeout: 20000 });
     expect(page.url()).toContain('https://www.google.com');
   });
+
+  it('should return error case url exists in db', async () => {
+    const baseUrl = 'http://localhost:3000';
+
+    // Navigate to the generate short link page
+    await page.goto(`${baseUrl}`);
+    await page.waitForSelector('#originalUrl');
+    await page.waitForSelector('#linkName');
+
+    // Type the original URL into the input field and submit the form
+    await page.type('#originalUrl', 'https://www.google.com');
+    await page.type('#linkName', 'google');
+    await page.click('button[type="button"]');
+
+    // Wait for the response from the server
+    const alert = await page.waitForSelector('div ::-p-text(Request failed with status code 409)');
+    expect(alert).toBeTruthy();
+    
+  });
 });
