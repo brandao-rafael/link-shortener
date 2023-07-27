@@ -39,15 +39,18 @@ const Content: React.FC<{ submit: (urlInfo: IUrlInfo) => Promise<void> }> = ({ s
           placeholder="Enter the URL you want to shorten"
           onChange={handleChange}
           value={urlInfo.originalUrl}
+          id="originalUrl"
         />
         <Input
           name="customWord"
           placeholder="Enter the name you want in the encrypted link"
           onChange={handleChange}
           value={urlInfo.customWord}
+          id="linkName"
         />
       </InputContent>
       <Button
+        type="button"
         onClick={() => submit(urlInfo)}
         disabled={!isValid}
       >

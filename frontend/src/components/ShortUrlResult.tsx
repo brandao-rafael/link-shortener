@@ -15,7 +15,7 @@ const ShortUrlResult: React.FC<IShortUrlResultProps> = ({ result }) => {
         }}
       >
         <Span>
-          <H3>{result}</H3>
+          <H3 id="shortUrl">{result}</H3>
           <Img src={copyIcon.src} alt="Copy Icon" />
         </Span>
       </IconButton>

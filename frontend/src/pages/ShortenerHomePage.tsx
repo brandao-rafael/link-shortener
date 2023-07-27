@@ -22,7 +22,7 @@ const ShortenerHomePage: React.FC = () => {
       toast.dismiss();
     }
   }
-  
+
   return (
     <div>
       <TitleContainer />

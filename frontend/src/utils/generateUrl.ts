@@ -2,7 +2,8 @@ import 'dotenv/config';
 import axios from 'axios';
 import IUrlInfo from '~/interfaces/iUrlInfo';
 
-const BASE_URL = process.env.BE_BASE_URL || 'https://lnkshrt.up.railway.app';
+// const BASE_URL = process.env.BE_BASE_URL || 'https://lnkshrt.up.railway.app';
+const BASE_URL = 'http://localhost:3005';
 
 const generateUrl = async (urlInfo: IUrlInfo) => {
   try {
