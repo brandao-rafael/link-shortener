@@ -21,6 +21,10 @@ You need to have node and mongodb installed in you machine, to more info see the
 4. `cd backend && npm install`
 5. In backend root run `npm run dev`
 
+If you clone from main you need to set the correct cors configuration to run in you machine
+<br/>
+Tests E2E can be see in frontend/tests in branch brandao-rafael-tests
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or pull request for any changes.
