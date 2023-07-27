@@ -26,7 +26,10 @@ If you clone from main you need to set the correct cors configuration to run in 
 
 ## Tests
 
-Tests E2E can be see in frontend/tests in branch brandao-rafael-tests
+Tests E2E can be see in `frontend/tests` in `branch brandao-rafael-tests`.
+To run tests make sure all of application is running and run `npm run test`.
+You can run test only time because application don't accept equals link name,
+if you want to run again you need delete from database the object with this shortUrl: `http://localhost:3005/google`
 
 ## Contributing
 
